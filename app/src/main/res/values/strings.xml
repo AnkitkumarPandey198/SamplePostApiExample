@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">SamplePostAPIDemo</string>
+    <string name="login">Login</string>
+    <string name="email1">Email</string>
+    <string name="password">Password</string>
+    <string name="first_name">First Name:</string>
+    <string name="roles">Roles:</string>
+    <string name="email">Email:</string>
+    <string name="last_name">Last Name:</string>
+    <string name="created_at">Created At:</string>
+    <string name="first_name1">First Name</string>
+    <string name="last_name1">Last Name</string>
+    <string name="created_at1">Created At</string>
+    <string name="server_value">Server Value</string>
+    <string name="user_details"><u>User Details</u>:-</string>
+    <string name="dashboard_data"><u>Dashboard Data</u>:-</string>
+    <string name="asset_count_by_status"><u>Asset Count By Status</u>:-</string>
+    <string name="available_assets_count">Available Assets Count:</string>
+    <string name="checkout_assets_count">Checkout Assets Count:</string>
+    <string name="disposed_assets_count">Disposed Assets Count:</string>
+    <string name="lost_assets_count">Lost Assets Count:</string>
+    <string name="asset_count_data"><u>Asset Count Data</u>:-</string>
+    <string name="total_assets_count">Total Assets Count:</string>
+    <string name="total_cost_of_assets">Total Cost Of Assets:</string>
+    <string name="asset_count_last_year">Asset Count Last Year:</string>
+    <string name="show_more_details">Show More Details</string>
+</resources>

@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/profilebkg"
+    tools:context=".DetailsActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cd_day"
+        android:layout_width="350dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="#F6F6F3"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/user_details_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/user_details"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/first_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/first_name"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/user_details_title"
+                app:layout_constraintTop_toBottomOf="@id/user_details_title" />
+
+            <TextView
+                android:id="@+id/first_name_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/server_value"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/first_name"
+                app:layout_constraintStart_toEndOf="@id/first_name"
+                app:layout_constraintTop_toTopOf="@id/first_name" />
+
+            <TextView
+                android:id="@+id/last_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/last_name"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/first_name"
+                app:layout_constraintTop_toBottomOf="@id/first_name" />
+
+            <TextView
+                android:id="@+id/last_name_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/server_value"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/last_name"
+                app:layout_constraintStart_toEndOf="@id/last_name"
+                app:layout_constraintTop_toTopOf="@id/last_name" />
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/email"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/last_name"
+                app:layout_constraintTop_toBottomOf="@id/last_name" />
+
+            <TextView
+                android:id="@+id/email_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/server_value"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/email"
+                app:layout_constraintStart_toEndOf="@id/email"
+                app:layout_constraintTop_toTopOf="@id/email" />
+
+            <TextView
+                android:id="@+id/roles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/roles"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/email"
+                app:layout_constraintTop_toBottomOf="@id/email" />
+
+            <TextView
+                android:id="@+id/roles_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/server_value"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/roles"
+                app:layout_constraintStart_toEndOf="@id/roles"
+                app:layout_constraintTop_toTopOf="@id/roles" />
+
+            <TextView
+                android:id="@+id/created_at"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/created_at"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/roles"
+                app:layout_constraintTop_toBottomOf="@id/roles" />
+
+            <TextView
+                android:id="@+id/created_at_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/server_value"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/created_at"
+                app:layout_constraintStart_toEndOf="@id/created_at"
+                app:layout_constraintTop_toTopOf="@id/created_at" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cd_dashboard"
+        android:layout_width="350dp"
+        android:layout_height="390dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="#F6F6F3"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@id/cd_day"
+        app:layout_constraintStart_toStartOf="@id/cd_day"
+        app:layout_constraintTop_toBottomOf="@id/cd_day">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/dashboard_data_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/dashboard_data"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/assetCountByStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="@string/asset_count_by_status"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/dashboard_data_title"
+                app:layout_constraintTop_toBottomOf="@id/dashboard_data_title" />
+
+            <TextView
+                android:id="@+id/availableAssetsCountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/available_assets_count"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/assetCountByStatus"
+                app:layout_constraintTop_toBottomOf="@id/assetCountByStatus" />
+
+            <TextView
+                android:id="@+id/availableAssetsCountValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/server_value"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/availableAssetsCountTextView"
+                app:layout_constraintStart_toEndOf="@id/availableAssetsCountTextView"
+                app:layout_constraintTop_toTopOf="@id/availableAssetsCountTextView" />
+
+            <TextView
+                android:id="@+id/checkoutAssetsCountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/checkout_assets_count"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/availableAssetsCountTextView"
+                app:layout_constraintTop_toBottomOf="@id/availableAssetsCountTextView" />
+
+            <TextView
+                android:id="@+id/checkoutAssetsCountValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/server_value"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/checkoutAssetsCountTextView"
+                app:layout_constraintStart_toEndOf="@id/checkoutAssetsCountTextView"
+                app:layout_constraintTop_toTopOf="@id/checkoutAssetsCountTextView" />
+
+            <TextView
+                android:id="@+id/disposedAssetsCountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/disposed_assets_count"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/checkoutAssetsCountTextView"
+                app:layout_constraintTop_toBottomOf="@id/checkoutAssetsCountTextView" />
+
+            <TextView
+                android:id="@+id/disposedAssetsCountValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/server_value"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/disposedAssetsCountTextView"
+                app:layout_constraintStart_toEndOf="@id/disposedAssetsCountTextView"
+                app:layout_constraintTop_toTopOf="@id/disposedAssetsCountTextView" />
+
+            <TextView
+                android:id="@+id/lostAssetsCountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/lost_assets_count"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/disposedAssetsCountTextView"
+                app:layout_constraintTop_toBottomOf="@id/disposedAssetsCountTextView" />
+
+            <TextView
+                android:id="@+id/lostAssetsCountValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/server_value"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/lostAssetsCountTextView"
+                app:layout_constraintStart_toEndOf="@id/lostAssetsCountTextView"
+                app:layout_constraintTop_toTopOf="@id/lostAssetsCountTextView" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageSeparate"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="10dp"
+                android:alpha="0.5"
+                android:background="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lostAssetsCountTextView"/>
+
+
+            <TextView
+                android:id="@+id/assetCountData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="@string/asset_count_data"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/imageSeparate"
+                app:layout_constraintTop_toBottomOf="@id/imageSeparate"/>
+
+            <TextView
+                android:id="@+id/totalAssetsCountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/total_assets_count"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/assetCountData"
+                app:layout_constraintTop_toBottomOf="@id/assetCountData" />
+
+            <TextView
+                android:id="@+id/totalAssetsCountValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/server_value"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/totalAssetsCountTextView"
+                app:layout_constraintStart_toEndOf="@id/totalAssetsCountTextView"
+                app:layout_constraintTop_toTopOf="@id/totalAssetsCountTextView" />
+
+            <TextView
+                android:id="@+id/totalCostOfAssetsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/total_cost_of_assets"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/totalAssetsCountTextView"
+                app:layout_constraintTop_toBottomOf="@id/totalAssetsCountTextView" />
+
+            <TextView
+                android:id="@+id/totalCostOfAssetsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/server_value"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/totalCostOfAssetsTextView"
+                app:layout_constraintStart_toEndOf="@id/totalCostOfAssetsTextView"
+                app:layout_constraintTop_toTopOf="@id/totalCostOfAssetsTextView" />
+
+            <TextView
+                android:id="@+id/assetCountLastYearTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/asset_count_last_year"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/totalCostOfAssetsTextView"
+                app:layout_constraintTop_toBottomOf="@id/totalCostOfAssetsTextView" />
+
+            <TextView
+                android:id="@+id/assetCountLastYearValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/server_value"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@id/assetCountLastYearTextView"
+                app:layout_constraintStart_toEndOf="@id/assetCountLastYearTextView"
+                app:layout_constraintTop_toTopOf="@id/assetCountLastYearTextView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
