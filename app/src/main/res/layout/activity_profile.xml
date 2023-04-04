@@ -13,8 +13,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profileImg"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
             app:civ_border_width="2dp"
@@ -27,10 +27,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
-            android:text="Name"
+            android:text="Hello Yugal"
             android:textColor="@color/white"
-            android:textSize="35sp"
-            android:layout_marginStart="30dp"
+            android:textSize="30sp"
+            android:layout_marginStart="20dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -193,18 +193,35 @@
 
         <Button
             android:id="@+id/detailsButton"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/show_more_details"
             android:textSize="18sp"
             app:cornerRadius="20dp"
+            android:layout_marginTop="30dp"
             android:textColor="@color/white"
             android:background="@color/lavender"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/linearLayout"
             app:layout_constraintStart_toStartOf="@id/linearLayout"
             app:layout_constraintTop_toBottomOf="@id/linearLayout" />
+
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/lavender"
+            android:gravity="center"
+            android:text="Log Out"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:cornerRadius="20dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/detailsButton"
+            app:layout_constraintStart_toStartOf="@id/detailsButton"
+            app:layout_constraintTop_toBottomOf="@id/detailsButton" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

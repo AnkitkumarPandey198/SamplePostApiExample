@@ -3,7 +3,9 @@ package com.wilp.samplepostapidemo;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -27,6 +29,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
+    // creating constant keys for shared preferences.
+    public static final String SHARED_PREFS = "shared_prefs";
+    // key for storing email.
+    public static final String EMAIL_KEY = "email_key";
+    // key for storing password.
+    public static final String PASSWORD_KEY = "password_key";
+    // variable for shared preferences.
+    SharedPreferences sharedpreferences;
+    String email, password;
+
     EditText emailEditText,passwordEditText;
     Button loginButton;
 
@@ -40,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
         emailEditText = findViewById(R.id.login_email);
         passwordEditText = findViewById(R.id.login_password);
         loginButton = findViewById(R.id.login_button);
+
+        sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        email = sharedpreferences.getString("EMAIL_KEY", null);
+        password = sharedpreferences.getString("PASSWORD_KEY", null);
 
         // Initialize Retrofit
         Retrofit retrofit = new Retrofit.Builder()
@@ -81,8 +97,13 @@ public class MainActivity extends AppCompatActivity {
                         String created_at = auth.getCreated_at();
 
                         // Getting and Saving Token In Database
-                        String AuthToken = auth.getToken();
+                        String AuthToken = "berer " + auth.getToken();
                         MyDatabase.getInstance(MainActivity.this).authTokenDao().saveAuthToken(new AuthToken(AuthToken));
+
+                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                        editor.putString(EMAIL_KEY, emailEditText.getText().toString().trim());
+                        editor.putString(PASSWORD_KEY, passwordEditText.getText().toString().trim());
+                        editor.apply();
 
                         Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
                         intent.putExtra("firstName",firstName);
@@ -91,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
                         intent.putExtra("profileImage",profileImage);
                         intent.putExtra("created_at",created_at);
                         startActivity(intent);
+                        finish();
                         Toast.makeText(MainActivity.this, "User is LoggedIN", Toast.LENGTH_SHORT).show();
 
 
@@ -110,5 +132,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (email != null && password != null) {
+            Intent i = new Intent(MainActivity.this, ProfileActivity.class);
+            startActivity(i);
+        }
     }
 }

@@ -33,6 +33,7 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
         dialog = new ProgressDialog(this);
         dialog.setTitle("Fetching data..");
@@ -62,12 +63,12 @@ public class DetailsActivity extends AppCompatActivity {
                 .client(new OkHttpClient().newBuilder().build())
                 .build();
 
+
         LauncherApiService api = retrofit.create(LauncherApiService.class);
 
         Call<LauncherApi> call = api.getLauncherApiData("application/json",
                 "android",
-                "IqJit4XEaiM71D2tBPauHG6dS78BfuMLQuJVZiwsw6Y=",
-                "berer " + token);
+                "IqJit4XEaiM71D2tBPauHG6dS78BfuMLQuJVZiwsw6Y=", token);
 
         call.enqueue(new Callback<LauncherApi>() {
             @Override
@@ -118,7 +119,7 @@ public class DetailsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(@NonNull Call<LauncherApi> call, @NonNull Throwable t) {
-                Toast.makeText(DetailsActivity.this, "Error! API is not Responding", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DetailsActivity.this, "Error! API is not Responding and working", Toast.LENGTH_SHORT).show();
             }
         });
 
