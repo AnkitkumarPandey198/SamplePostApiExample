@@ -2,32 +2,30 @@ package com.wilp.samplepostapidemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.wilp.samplepostapidemo.database.MyDatabase;
 
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class ProfileActivity extends AppCompatActivity {
 
-    public static final String SHARED_PREFS = "shared_prefs";
-    // variable for shared preferences.
-    SharedPreferences sharedpreferences;
-    String email;
-
     TextView titleName,userFirstName,userLastName,userCreatedAt,userEmail;
     ImageView profileImg;
     Button showMoreDetails,logoutButton;
+
+    String firstName ,lastName , email ,profileImage ,created_at , greetName;
+
+    ProgressDialog dialog;
 
 
     @Override
@@ -37,11 +35,17 @@ public class ProfileActivity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-        sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        dialog = new ProgressDialog(this);
+        dialog.setTitle("Fetching Profile Data..");
+        dialog.show();
 
-        // getting data from shared prefs and
-        // storing it in our string variable.
-        email = sharedpreferences.getString("EMAIL_KEY", null);
+        firstName = getIntent().getStringExtra("firstName");
+        lastName = getIntent().getStringExtra("lastName");
+        email = getIntent().getStringExtra("email");
+        profileImage = getIntent().getStringExtra("profileImage");
+        created_at = getIntent().getStringExtra("created_at");
+
+        greetName = "Hello "+ firstName;
 
         titleName = findViewById(R.id.titleName);
         userFirstName = findViewById(R.id.profileFirstName);
@@ -52,35 +56,37 @@ public class ProfileActivity extends AppCompatActivity {
         showMoreDetails = findViewById(R.id.detailsButton);
         logoutButton = findViewById(R.id.logoutButton);
 
-        showProfileData();
         showMoreDetails.setOnClickListener(v -> {
+            String token = getIntent().getStringExtra("token");
+            Log.e("API CALL",token);
             Intent intent = new Intent(ProfileActivity.this,DetailsActivity.class);
+            intent.putExtra("auth_token",token);
             startActivity(intent);
 
         });
 
         logoutButton.setOnClickListener(v -> {
-            SharedPreferences.Editor editor = sharedpreferences.edit();
-            editor.clear();
-            editor.apply();
             Intent i = new Intent(ProfileActivity.this, MainActivity.class);
-            MyDatabase.getInstance(ProfileActivity.this).authTokenDao().deleteAuthToken();
             startActivity(i);
             finish();
         });
+
+        showProfileData();
+
+        Timer  timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                dialog.dismiss();
+                timer.cancel();
+
+            }
+        },6000,6000);
 
 
     }
 
     void showProfileData(){
-
-        String firstName = getIntent().getStringExtra("firstName");
-        String lastName = getIntent().getStringExtra("lastName");
-        String email = getIntent().getStringExtra("email");
-        String profileImage = getIntent().getStringExtra("profileImage");
-        String created_at = getIntent().getStringExtra("created_at");
-
-        String greetName = "Hello "+ firstName;
 
         titleName.setText(greetName);
         userFirstName.setText(firstName);
@@ -88,7 +94,6 @@ public class ProfileActivity extends AppCompatActivity {
         userLastName.setText(lastName);
         userEmail.setText(email);
         Glide.with(ProfileActivity.this).load(profileImage).into(profileImg);
-
 
     }
 

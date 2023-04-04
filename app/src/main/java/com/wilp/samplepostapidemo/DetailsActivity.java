@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.wilp.samplepostapidemo.database.AuthToken;
-import com.wilp.samplepostapidemo.database.MyDatabase;
 import com.wilp.samplepostapidemo.launcherapi.LauncherApi;
 import com.wilp.samplepostapidemo.launcherapi.LauncherApiService;
 
@@ -54,8 +52,7 @@ public class DetailsActivity extends AppCompatActivity {
         totalCostOfAssetsTextView = findViewById(R.id.totalCostOfAssetsValue);
         assetCountLastYearTextView = findViewById(R.id.assetCountLastYearValue);
 
-        AuthToken authToken = MyDatabase.getInstance(DetailsActivity.this).authTokenDao().getAuthToken();
-        String token = authToken.getToken();
+        String token = getIntent().getStringExtra("auth_token");
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://staging.greytrunk.cloudzmall.com/api/v1/")
@@ -124,5 +121,12 @@ public class DetailsActivity extends AppCompatActivity {
         });
 
 
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }
